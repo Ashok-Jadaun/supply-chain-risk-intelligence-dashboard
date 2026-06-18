@@ -1,0 +1,13 @@
+vendor,category,market_share,avg_lead_time,lead_time_std,breach_threshold,breach_probability,spend_at_risk,disruption_exposure,rank_order,recommendation,projected_risk_reduction_pct
+2893,Cardio Equipment,0.0009,3.67,1.86,7.39,0.0235,10559.95,248.158825,1,Dual-source: add secondary vendor,30.0
+221,Women's Apparel,0.0007,2.91,2.34,7.6,0.0236,7048.0,166.3328,2,Dual-source: add secondary vendor,30.0
+3426,Cleats,0.0005,3.75,0.89,5.52,0.0212,7722.18,163.710216,3,Dual-source: add secondary vendor,30.0
+5958,Indoor/Outdoor Games,0.0007,1.78,1.2,4.18,0.0226,6451.69,145.808194,4,Dual-source: add secondary vendor,30.0
+4791,Girls' Apparel,0.0072,2.0,1.0,4.0,0.0239,3623.2,86.59448,5,Dual-source: add secondary vendor,30.0
+3375,Shop By Sport,0.0008,4.0,2.71,9.42,0.022,3529.89,77.65758,6,Dual-source: add secondary vendor,30.0
+1844,Fishing,0.0005,3.56,1.33,6.22,0.0223,3269.82,72.91698600000001,7,Dual-source: add secondary vendor,30.0
+10882,Kids' Golf Clubs,0.0143,2.5,0.71,3.91,0.0242,2583.0,62.5086,8,Dual-source: add secondary vendor,30.0
+6950,Women's Golf Clubs,0.0238,5.0,1.41,7.83,0.0233,2640.84,61.531572000000004,9,Dual-source: add secondary vendor,30.0
+5784,Electronics,0.002,2.67,1.15,4.98,0.0241,2495.91,60.151430999999995,10,Dual-source: add secondary vendor,30.0
+8772,Tennis & Racquet,0.0139,4.5,2.12,8.74,0.0252,2041.45,51.44454,11,Dual-source: add secondary vendor,30.0
+578,Baseball & Softball,0.0077,6.0,1.0,8.0,0.0226,2230.8,50.41608,12,Dual-source: add secondary vendor,30.0
