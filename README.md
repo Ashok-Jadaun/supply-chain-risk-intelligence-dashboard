@@ -1,9 +1,9 @@
 # Supply Chain Risk Intelligence Dashboard
 
-**End-to-end supply chain risk analytics system** — from raw transactional data to Monte Carlo disruption modelling and interactive Power BI dashboard.
+**End-to-end supply chain risk analytics system** - from raw transactional data to Monte Carlo disruption modelling and interactive Power BI dashboard.
 
 **Stack:** Python · SQL (MySQL) · Power BI · Pandas · Scikit-Learn · NumPy  
-**Dataset:** DataCo Smart Supply Chain (~180K rows, 53 columns) — [Kaggle](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)
+**Dataset:** DataCo Smart Supply Chain (~180K rows, 53 columns) - [Kaggle](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)
 
 ---
 
@@ -21,11 +21,11 @@
 
 ## Project Highlights
 
-- **Monte Carlo Simulation** — 10,000 disruption scenarios per vendor using empirical lead time distributions; breach threshold set at mean + 2σ
-- **Herfindahl-Hirschman Index (HHI)** — applied to procurement to quantify spend concentration risk per commodity category
-- **Star Schema SQL Pipeline** — staging → dimension tables → fact table → 13 analytical views
-- **What-If Scenario Tool** — Power BI Page 4 lets a procurement manager simulate risk reduction dynamically by adjusting sourcing multiplier (0.50–1.00)
-- **End-to-End Pipeline** — raw CSV → Python EDA/cleaning → MySQL star schema → SQL views → Power BI dashboard
+- **Monte Carlo Simulation** - 10,000 disruption scenarios per vendor using empirical lead time distributions; breach threshold set at mean + 2σ
+- **Herfindahl-Hirschman Index (HHI)** - applied to procurement to quantify spend concentration risk per commodity category
+- **Star Schema SQL Pipeline** - staging → dimension tables → fact table → 13 analytical views
+- **What-If Scenario Tool** - Power BI Page 4 lets a procurement manager simulate risk reduction dynamically by adjusting sourcing multiplier (0.50–1.00)
+- **End-to-End Pipeline** - raw CSV → Python EDA/cleaning → MySQL star schema → SQL views → Power BI dashboard
 
 ---
 
@@ -73,18 +73,18 @@ supply_chain_project/
 
 ## Methodology
 
-### Stage 1 — Data Cleaning & Feature Engineering (`01_eda_cleaning.ipynb`)
+### Stage 1 - Data Cleaning & Feature Engineering (`01_eda_cleaning.ipynb`)
 - Dropped PII columns: `fname`, `lname`, `email`, `password`, `street`, `product_image`
 - Null handling: columns >50% null dropped; remaining filled with median
 - Engineered features: `lead_time_days`, `late_delivery_flag`, `delivery_delay_days`, `spend_per_order`, `order_year/month/quarter/weekday`, `vendor_tier` (Strategic / Preferred / Transactional via spend quantile)
 - Output: `validation_report.json` with negative spend checks, lead time outliers (>90 days), duplicate `order_item_id` counts
 
-### Stage 2 — EDA (`02_eda_analysis.ipynb`)
+### Stage 2 - EDA (`02_eda_analysis.ipynb`)
 - Distribution histograms and boxplots for key metrics
 - Correlation heatmap across numeric features
 - Output: 3 PNG charts saved to `docs/`
 
-### Stage 3 — Risk Scoring (`03_risk_scoring.ipynb`)
+### Stage 3 - Risk Scoring (`03_risk_scoring.ipynb`)
 - HHI computed per commodity category (spend concentration)
 - Lead time variance score normalised 0–1
 - Late delivery rate proxy per vendor
@@ -92,7 +92,7 @@ supply_chain_project/
 - Risk bands: Low / Medium / High / Critical
 - Output: `vendor_risk_scores.csv`
 
-### Stage 4 — Monte Carlo Simulation (`04_monte_carlo.ipynb`)
+### Stage 4 - Monte Carlo Simulation (`04_monte_carlo.ipynb`)
 - Top vendor per category by spend share identified (no true single-source vendors in dataset — see Known Limitations)
 - 10,000 simulations per vendor using empirical lead time distribution (`np.random.seed(42)`)
 - Breach threshold: `mean + 2 × std dev`
@@ -101,7 +101,7 @@ supply_chain_project/
 - Top 12 vendors ranked by disruption exposure — dual-sourcing recommendations with projected 30% risk reduction (industry benchmark)
 - Output: `monte_carlo_results.csv` (21 rows), `top12_dual_sourcing.csv` (12 rows)
 
-### Stage 5 — SQL Pipeline (`sql/`)
+### Stage 5 - SQL Pipeline (`sql/`)
 Star schema: `staging_orders` → `dim_vendor`, `dim_product`, `dim_region`, `dim_date`, `fact_orders`  
 13 analytical views including `vw_vendor_risk_master`, `vw_kpi_summary`, `vw_disruption_exposure`, `vw_dual_sourcing_recommendations`, `vw_yoy_spend`
 
@@ -117,7 +117,7 @@ sql/03_disruption_analysis.sql
 sql/04_reporting_views.sql   ← run LAST
 ```
 
-### Stage 6 — Power BI Dashboard (`powerbi/`)
+### Stage 6 - Power BI Dashboard (`powerbi/`)
 - MySQL connection via ODBC 8.x
 - 18 DAX measures including `Disruption Exposure`, `Risk After Intervention`, `YoY Growth %`
 - What-If parameter (Sourcing Multiplier 0.50–1.00) drives dynamic scenario modelling on Page 4
@@ -138,7 +138,7 @@ sql/04_reporting_views.sql   ← run LAST
 
 ## Key Findings
 
-- Late delivery rate exceeds 60% for certain shipping modes — primary driver of composite risk score
+- Late delivery rate exceeds 60% for certain shipping modes - primary driver of composite risk score
 - Top 3 categories by disruption exposure account for disproportionate share of spend-at-risk
 - 12 dual-sourcing interventions identified with projected ~30% risk reduction per category
 - HHI analysis reveals high spend concentration in several commodity categories, signalling single-point-of-failure risk
